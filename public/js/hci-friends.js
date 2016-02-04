@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
@@ -10,6 +12,12 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+	$(".friend_name").click(function(event){
+		event.preventDefault();
+		$(this).text(anagrammedName($(this).text()));
+	});
+
+	$("#search").keydown(sortNames);
 }
 
 function anagrammedName(name) {
@@ -42,5 +50,13 @@ function anagrammedName(name) {
 	else {
 		console.log(name + " not known for anagramming.");
 		return name;
+	}
+}
+
+function sortNames(){
+	console.log("called");
+	var people = $(".friend");
+	for(var i = 0; i < people.length; ++i){
+
 	}
 }
